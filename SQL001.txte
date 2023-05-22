@@ -1,0 +1,5 @@
+--Create database command
+CREATE DATABASE SQLBootCamp;
+CREATE DATABASE Test;
+-- Get the list of existing DATABASES
+SHOW DATABASES
