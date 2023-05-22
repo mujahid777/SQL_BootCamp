@@ -23,3 +23,22 @@ SHOW tables;
 
 --command to list down all the TABLESPACE
 SHOW create table Employee;
+
+
+--command to delete the TABLE
+Drop table Employee;
+
+--command to create the TABLE
+CREATE Table if not exists employee
+(
+    id int,
+    name VARCHAR(50),
+    salary DOUBLE,
+    hiring_date DATE
+);
+
+--synatx 1 to insert data into a table
+INSERT into employee values(1,"mujahid", 1000, '2023-03-22');
+
+--this statement wil fail
+INSERT into employee values(1,"mujahid", '2023-03-22');
