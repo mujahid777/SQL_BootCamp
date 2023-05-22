@@ -86,5 +86,6 @@ insert into employee_with_constraints values(1,"mujahid", 1200, '2023-03-24');
 
 -- example 5 for integrity constraint 
 insert into employee_with_constraints values(2,"mujahid", 1200, null);
+insert into employee_with_constraints(id,name,salary) values(3,"Amaaan", 1570,);
 
 SELECT * from employee_with_constraints;
