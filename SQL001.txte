@@ -7,3 +7,13 @@ SHOW DATABASES;
 
 -- command to Drop DATABASE
 DROP DATABASE Test;
+
+---Go inside the particular DATABASE
+use SQLBootCamp;
+
+--- command to create a TABLE
+CREATE Table if not exists Employee
+(
+    id int,
+    Name VARCHAR(50)
+);
