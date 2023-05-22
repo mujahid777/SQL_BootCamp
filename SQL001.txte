@@ -41,4 +41,4 @@ CREATE Table if not exists employee
 INSERT into employee values(1,"mujahid", 1000, '2023-03-22');
 
 --this statement wil fail
-INSERT into employee values(1,"mujahid", '2023-03-22');
+INSERT into employee values(1,"raza", '2023-03-22');
