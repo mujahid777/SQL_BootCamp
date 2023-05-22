@@ -68,14 +68,18 @@ CREATE table if not exists employee_with_constraints
 insert into employee_with_constraints values(null,"mujahid", 1000, '2023-03-22');
 
 
--- example 1 for integrity constraint failure
+-- example 2 for integrity constraint failure
 --Exception will be thrown -> column 'name' cannot be Null
 insert into employee_with_constraints values(3,null, 1000, '2023-03-22');
 
 
--- example 1 for integrity constraint failure
+-- example 3 for integrity constraint failure
 --Exception will be thrown -> Check constraint 'employee_with_constraints_chk_1' is violated.
 insert into employee_with_constraints values(1,"mujahid", 500, '2023-03-22');
 
 -- insert correct data
 insert into employee_with_constraints values(1,"mujahid", 1500, '2023-03-22');
+
+-- example 4 for integrity constraint failure
+--Exception will be thrown -> Duplicate entry '1' for key 'employee_with_constraints.id'
+insert into employee_with_constraints values(1,"mujahid", 1200, '2023-03-24');
