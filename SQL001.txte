@@ -37,8 +37,17 @@ CREATE Table if not exists employee
     hiring_date DATE
 );
 
---synatx 1 to insert data into a table
+--syntax 1 to insert data into a table
 INSERT into employee values(1,"mujahid", 1000, '2023-03-22');
 
 --this statement wil fail
 INSERT into employee values(1,"raza", '2023-03-22');
+
+--syntax 2 to insert data into a table
+INSERT into employee(salary,name,id) values(2000,'raza',2);
+
+-- insert multiple rows using single insert STATEMENT
+INSERT into employee values(3,'azamn',3000,'2023-03-23'),(4,'zeeshan',4000,'2023-03-24'),(5,'amaan',5000,'2023-03-27');
+
+--use select command to query the data
+SELECT * from employee;
