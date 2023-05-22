@@ -62,3 +62,17 @@ CREATE table if not exists employee_with_constraints
     UNIQUE(ID),
     CHECK (salary > 1000)
 );
+
+-- example 1 for integrity constraint failure
+--Exception will be thrown -> column 'id' cannot be Null
+insert into employee_with_constraints values(null,"mujahid", 1000, '2023-03-22');
+
+
+-- example 1 for integrity constraint failure
+--Exception will be thrown -> column 'name' cannot be Null
+insert into employee_with_constraints values(3,null, 1000, '2023-03-22');
+
+
+-- example 1 for integrity constraint failure
+--Exception will be thrown -> Check constraint 'employee_with_constraints_chk_1' is violated.
+insert into employee_with_constraints values(1,"mujahid", 500, '2023-03-22');
