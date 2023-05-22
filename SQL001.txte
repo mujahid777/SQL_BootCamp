@@ -83,3 +83,8 @@ insert into employee_with_constraints values(1,"mujahid", 1500, '2023-03-22');
 -- example 4 for integrity constraint failure
 --Exception will be thrown -> Duplicate entry '1' for key 'employee_with_constraints.id'
 insert into employee_with_constraints values(1,"mujahid", 1200, '2023-03-24');
+
+-- example 5 for integrity constraint 
+insert into employee_with_constraints values(2,"mujahid", 1200, null);
+
+SELECT * from employee_with_constraints;
