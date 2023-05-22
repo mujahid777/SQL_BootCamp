@@ -89,3 +89,20 @@ insert into employee_with_constraints values(2,"mujahid", 1200, null);
 insert into employee_with_constraints(id,name,salary) values(3,"Amaaan", 1570,);
 
 SELECT * from employee_with_constraints;
+
+
+--add alias name for constraints
+CREATE table if not exists employee_with_constraints_tmp
+(
+    id int NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    salary DOUBLE,
+    hiring_date Date DEFAULT '2021-09-25',
+    CONSTRAINT unique_id UNIQUE(ID),
+    CONSTRAINT salary_check CHECK (salary > 1000)
+);
+
+
+-- example 4 for integrity constraint failure with alias name of constraints
+--Exception will be thrown -> Check constraint 'salary_check' is violated.
+insert into employee_with_constraints_tmp values(1,"ayyub", 500, '2023-03-24');
