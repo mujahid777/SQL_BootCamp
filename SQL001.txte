@@ -17,3 +17,9 @@ CREATE Table if not exists Employee
     id int,
     Name VARCHAR(50)
 );
+
+--command to list down all the TABLESPACE
+SHOW tables;
+
+--command to list down all the TABLESPACE
+SHOW create table Employee;
