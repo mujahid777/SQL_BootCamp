@@ -51,3 +51,14 @@ INSERT into employee values(3,'azamn',3000,'2023-03-23'),(4,'zeeshan',4000,'2023
 
 --use select command to query the data
 SELECT * from employee;
+
+--Example for integrity constraints
+CREATE table if not exists employee_with_constraints
+(
+    id int NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    salary DOUBLE,
+    hiring_date Date DEFAULT '2021-09-25',
+    UNIQUE(ID),
+    CHECK (salary > 1000)
+);
