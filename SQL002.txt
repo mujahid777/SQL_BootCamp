@@ -44,3 +44,67 @@ alter table employee add constraint id_unique UNIQUE(id);
 insert into employee values(1,'Mujahid','SRMH','2023-01-12');
 
 select * from employee;
+
+
+CREATE database test1;
+
+use test1;
+
+--- create table with  primary_key
+
+CREATE table persons
+(
+    id int,
+    name VARCHAR(50),
+    age int,
+    ---primary key (id)
+    constraint pk primary key (id)
+);
+
+insert into persons values(1,'raza',27);
+
+----try to insert duplicate value for primary key column
+insert into persons values(1,'mujahid',27);
+
+----try to insert null value for primary key column
+insert into persons values(null,'maan',20);
+
+alter table persons add constraint age_unq UNIQUE(age);
+
+select * from persons;
+
+insert into persons values(2,'maan',20);
+
+---Duplicate entry '20' for key 'persons.age_unq'
+insert into persons values(3,'maan',20);
+
+insert into persons values(3,'mujahid',28);
+
+select * from persons;
+
+insert into persons values(4,'zeeshan',null);
+
+select * from persons;
+
+insert into persons values(5,'ali',null);
+
+SELECT * from persons;
+
+--- create table for Foreign key demo
+
+create table customer
+(
+    cust_id int,
+    name VARCHAR(50),
+    age int,
+    constraint pk primary key (cust_id)
+);
+
+create table orders
+(
+    order_id int,
+    order_num int,
+    customer_id int,
+    constraint pk primary key (order_id),
+    constraint fk foreign key (customer_id) REFERENCES customer(cust_id)
+);
