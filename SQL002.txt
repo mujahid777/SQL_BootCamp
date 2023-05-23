@@ -22,3 +22,11 @@ select * from employee;
 
 --- modify existing column in a table or change of name column or increase lenght of name COLUMN
 alter table employee modify column name varchar(100);
+
+---delete existing column from given table or remove city column from employee table
+alter table employee drop column city;
+
+select * from employee;
+
+---rename the column name to full_name
+alter table employee rename column name to full_name;
