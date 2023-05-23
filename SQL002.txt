@@ -1,4 +1,3 @@
-
 create database class2_db;
 
 use class2_db;
@@ -35,6 +34,9 @@ alter table employee rename column name to full_name;
 alter table employee add constraint id_unique UNIQUE(id);
 
 insert into employee values(1,'Mujahid','SRMH','2023-01-12');
+
+--- drop constraint from existing table
+alter table employee drop constraint id_unique;
 
 ---add unique integrity constraint on id COLUMN
 alter table employee add constraint id_unique UNIQUE(id);
