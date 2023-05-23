@@ -108,3 +108,13 @@ create table orders
     constraint pk primary key (order_id),
     constraint fk foreign key (customer_id) REFERENCES customer(cust_id)
 );
+
+---Difference between Drop & Truncate command
+
+select * from persons;
+
+truncate table persons;
+
+select * from persons;
+
+drop table persons;
