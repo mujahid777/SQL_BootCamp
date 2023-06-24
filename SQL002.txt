@@ -118,3 +118,22 @@ truncate table persons;
 select * from persons;
 
 drop table persons;
+
+
+---operation with select command
+
+select * from employee;
+
+drop table employee;
+
+create table if not exists employee(
+
+    id int,
+    name VARCHAR(50),
+    age int,
+    hiring_date date,
+    salary int,
+    city VARCHAR(50)
+);
+
+insert into employee values(1, 'mujahid',24,'2021-08-12',10000, 'aligarh');
