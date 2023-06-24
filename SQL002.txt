@@ -136,4 +136,30 @@ create table if not exists employee(
     city VARCHAR(50)
 );
 
+
 insert into employee values(1, 'mujahid',24,'2021-08-12',10000, 'aligarh');
+insert into employee values(2, 'mujahid',27,'2021-08-12',20000, 'pilibhit');
+insert into employee values(3, 'mujahid',26,'2021-08-17',11000, 'agra');
+insert into employee values(4, 'mujahid',28,'2021-08-17',12000, 'bareilly');
+insert into employee values(1, 'mujahid',29,'2021-08-19',17000, 'delhi');
+
+select * from employee;
+ 
+--- how to count total records
+
+select COUNT(*) from employee;
+
+---alias declaration
+SELECT count(*) as total_row_count from employee;
+
+---display all column in the final RESULT
+
+select * from employee;
+
+---display specific column in the final RESULT
+
+select name,salary from employee;
+
+---aliases for multiple COLUMNS
+
+select name as employee_name, salary as employee_salary from employee;
