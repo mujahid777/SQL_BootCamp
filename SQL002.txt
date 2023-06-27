@@ -163,3 +163,59 @@ select name,salary from employee;
 ---aliases for multiple COLUMNS
 
 select name as employee_name, salary as employee_salary from employee;
+
+
+select * from employee;
+
+---print unique hiring_date from the employee table when employees joined it
+
+select DISTINCT(hiring_date) from employee;
+
+
+select DISTINCT(hiring_date) as distinct_hiring_date from employee;
+
+--- how many unique age values in the table??
+select count(DISTINCT(age)) from employee;
+
+select count(DISTINCT(age)) as toatal_unique_age from employee;
+
+--- increment salary of each employee by 20% display final result with new salary
+
+select id,
+       name,
+       salary as old_salary,
+       (salary + salary*0.2) as new_salary
+from employee;
+
+--- syntax for update command
+
+select * from employee;
+
+--- update will be made for all rows
+UPDATE employee SET age = 20;
+
+select * from employee;
+
+--- update the salary of employee after giving 20% increment
+
+UPDATE employee SET salary = salary + salary * 0.2;
+
+select * from employee;
+
+--- how to filter data using where clauses
+
+select * from employee where hiring_date = '2021-08-17';
+
+
+--- update the salary of employee who joined the company on 2021-08-17 to 80000
+
+UPDATE employee set salary = 80000 where hiring_date = '2021-08-17';
+
+select * from employee;
+
+--- how to delete specific records from table using delete command
+--- delete records of those employee who joined company on 2021-08-17
+
+delete from employee where hiring_date = '2021-08-17';
+
+select * from employee;
