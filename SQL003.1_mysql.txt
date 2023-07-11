@@ -40,3 +40,11 @@ insert into auto_inc_exmp(name) values("raza");
 select * from auto_inc_exmp;
 
 
+---Use of limit
+
+select * from employee;
+select * from employee limit 2;
+
+
+
+
