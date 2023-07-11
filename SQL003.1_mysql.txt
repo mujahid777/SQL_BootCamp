@@ -10,10 +10,10 @@ create table if not exists employee(
     city VARCHAR(50)
 );
 insert into employee values(1, 'mujahid',24,'2021-08-12',10000, 'aligarh');
-insert into employee values(2, 'mujahid',27,'2021-08-12',20000, 'pilibhit');
-insert into employee values(3, 'mujahid',26,'2021-08-17',11000, 'agra');
-insert into employee values(4, 'mujahid',28,'2021-08-17',12000, 'bareilly');
-insert into employee values(1, 'mujahid',29,'2021-08-19',17000, 'delhi');
+insert into employee values(2, 'raza',27,'2021-08-12',20000, 'pilibhit');
+insert into employee values(3, 'ayyub',26,'2021-08-17',11000, 'agra');
+insert into employee values(4, 'anna',28,'2021-08-17',12000, 'bareilly');
+insert into employee values(1, 'zubair',29,'2021-08-19',17000, 'delhi');
 
 select * from employee;
 
