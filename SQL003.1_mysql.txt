@@ -107,3 +107,36 @@ select * from employee where hiring_date between '2021-08-15' and '2021-08-20';
 --- get all employees date who are getting salary in the range of 10000 to 28000
 select * from employee where salary between 10000 and 28000;
 
+
+--- how to use like operation in where clause
+# % -> zero, one or more than one characters
+# _ -> only one character
+
+--- get all the employees whose name start with 'A'
+select * from employee where name like 'A%';
+
+--- get all the employees whose name start with 'Ay'
+select * from employee where name like 'Ay%';
+
+--- get all the employees whose name end with 'd'
+select * from employee where name like '%d';
+
+--- get all the employees whose name start with 'M' and end with 'd'
+select * from employee where name like 'M%d';
+
+--- get all those employees whose name will exact 4 characters
+select * from employee where name like '____';
+
+select * from employee where name like '%____%';
+
+--- How to use Is Null amd Is Not Null in the where clause
+insert into employee values(10, 'john',Null,'2021-08-12',10000, 'southhampton');
+insert into employee values(11, 'smith',27,'2021-08-12',Null, 'paris');
+
+--- Get all those employees whose age value is null
+select * from employee where age Is Null;
+
+select * from employee;
+
+--- Get all those employees whose salary is not null
+select * from employee where salary Is not Null;
