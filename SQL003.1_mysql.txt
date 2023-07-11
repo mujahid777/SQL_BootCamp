@@ -24,3 +24,19 @@ set SQL_SAFE_UPDATES = 0;
 update employee set age=20, salary=25000 where hiring_date='2021-08-12';
 commit;
 select * from employee;
+
+---how tp apply auto increment
+
+create table auto_inc_exmp
+(
+id int auto_increment,
+name varchar (20),
+primary key (id)
+
+);
+insert into auto_inc_exmp(name) values("mujahid");
+insert into auto_inc_exmp(name) values("raza");
+
+select * from auto_inc_exmp;
+
+
