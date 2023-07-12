@@ -143,3 +143,29 @@ select node,
         ELSE 'INNER'  
        END as node_type
  from tree;  
+
+ --- Example for Case when with group by -> Amozon SQL Question
+
+ create table transactions
+ (
+    trx_date Date,
+    merchant_id VARCHAR(10),
+    amount int,
+    payment_mode VARCHAR(10)
+ );
+
+ insert into transactions values ('2022-04-02', 'm1', 150, 'CASH');
+ insert into transactions values ('2022-04-02', 'm1', 500, 'ONLINE');
+ insert into transactions values ('2022-04-03', 'm2', 450, 'ONLINE');
+ insert into transactions values ('2022-04-03', 'm1', 100, 'CASH');
+ insert into transactions values ('2022-04-03', 'm3', 600, 'CASH');
+ insert into transactions values ('2022-04-05', 'm5', 200, 'ONLINE');
+ insert into transactions values ('2022-04-05', 'm2', 100, 'ONLINE');
+
+ select * from transactions;
+
+ select merchant_id,
+            sum(case when payment_mode = 'CASH' then amount else 0 end) as cash_amount,
+            sum(case when payment_mode = 'ONLINE' then amount else 0 end) as online_amount
+from transactions
+group by merchant_id;
