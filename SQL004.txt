@@ -1,0 +1,44 @@
+CREATE DATABASE test;
+
+use test;
+
+create table orders_data
+(
+cust_id int,
+order_id int,
+country varchar(50),
+state varchar(50)
+);
+
+insert into orders_data values(1, 100, 'USA', 'Seattle');
+insert into orders_data values(2, 101, 'INDIA', 'UP');
+insert into orders_data values(2, 103, 'INDIA', 'Bihar');
+insert into orders_data values(4, 108, 'USA', 'WDC');
+insert into orders_data values(5, 109, 'UK', 'London');
+insert into orders_data values(4, 110, 'USA', 'WDC');
+insert into orders_data values(3, 120, 'INDIA', 'AP');
+insert into orders_data values(2, 121, 'INDIA', 'Goa');
+insert into orders_data values(1, 131, 'USA', 'Seattle');
+insert into orders_data values(6, 142, 'USA', 'Seattle');
+insert into orders_data values(7, 150, 'USA', 'Seattle');
+
+SELECT * from orders_data;
+
+--- Use of Having clause
+--- write a query to find the country where only 1 order was placed
+select country from orders_data group by country Having count(*)=1;
+
+--- Where clause and group by clause -> what should be the proper sequence?
+--- Answer -> where clause and then group BY
+
+--- How to use GROUP_CONCAT
+--- Query -> Write a query to print DISTINCT states present in the dataset for each country
+
+SELECT country, GROUP_CONCAT(state) as states_in_country from orders_data group by country;
+SELECT country, GROUP_CONCAT(distinct state) as states_in_country from orders_data group by country;
+
+SELECT country, GROUP_CONCAT(distinct state order by state desc) as states_in_country from orders_data group by country;
+
+SELECT country, GROUP_CONCAT(distinct state order by state desc SEPARATOR '_') as states_in_country from orders_data group by country;
+
+SELECT country, GROUP_CONCAT(distinct state order by state desc SEPARATOR '  -  ') as states_in_country from orders_data group by country;
