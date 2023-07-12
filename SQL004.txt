@@ -59,3 +59,33 @@ select * from employees;
 --- wrong way -> select salary from employees where salary > 6500;
 
 select * from employees where salary > (select salary from employees where name= 'ali');
+
+
+--- Use of IN and NOT IN
+--- Write a query to print all the orders which were placed in 'seattle' or 'Goa'
+
+--- wrong way ->  select * from orders_data where state = 'Seattle' or state 'Goa';
+
+select * from orders_data where state in ('Seattle', 'Goa'); 
+
+CREATE table customer_order_data
+(
+    order_id int,
+    cust_id int,
+    supplier_id int,
+    cust_country VARCHAR(50)
+);
+
+insert into customer_order_data values(101,200,300,'USA'),(102,201,301,'INDIA'),(103,202,302,'USA'),(104,203,303,'UK');
+
+CREATE TABLE supplier_data
+(
+    supplier_id int,
+    sup_country VARCHAR(50)
+);
+
+insert into supplier_data values(300,'USA'),(303,'UK');
+
+--- Write a query to find all customer order data where all customers are from same countries as tha supplier 
+select * from customer_order_data where cust_country in (select distinct sup_country from supplier_data);
+
