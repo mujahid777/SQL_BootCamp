@@ -42,3 +42,20 @@ SELECT country, GROUP_CONCAT(distinct state order by state desc) as states_in_co
 SELECT country, GROUP_CONCAT(distinct state order by state desc SEPARATOR '_') as states_in_country from orders_data group by country;
 
 SELECT country, GROUP_CONCAT(distinct state order by state desc SEPARATOR '  -  ') as states_in_country from orders_data group by country;
+
+--- subqueries 
+CREATE table employees
+(
+    id int,
+    name VARCHAR(50), 
+    salary int
+);
+
+insert into employees values(1, 'mujahid', 5000), (2, 'raza', 5500), (3, 'ayyub', 6000), (4, 'danish', 7000), (5, 'ali', 6500), (6, 'zesu', 7500);
+
+select * from employees;
+
+--- Write a query to print all those employee records who are getting more salary then "ali"
+--- wrong way -> select salary from employees where salary > 6500;
+
+select * from employees where salary > (select salary from employees where name= 'ali');
