@@ -122,4 +122,24 @@ select stu_id,
         WHEN total_marks >= 60 and total_marks < 75 THEN 'B'
         ELSE  'C'
        END as Grade
-from student_marks;       
+from student_marks;     
+
+--- Uber SQL interview question
+
+create table tree
+(
+    node int,
+    parent int
+);
+
+insert into tree values (5,8),(9,8),(4,5),(2,9),(1,5),(3,9),(8,null);
+
+select * from tree;
+
+select node,
+       CASE 
+        WHEN node not in (select distinct parent from tree where parent is not null) THEN  "LEAF"
+        when parent is null then 'ROOT'
+        ELSE 'INNER'  
+       END as node_type
+ from tree;  
