@@ -203,3 +203,21 @@ SELECT
 o.*, c.*
 from orders o
 inner join customers c on o.cust_id = c.cust_id;
+
+--- perform Left join
+SELECT
+o.*, c.*
+from orders o
+left join customers c on o.cust_id = c.cust_id;
+
+--- perform Right join
+SELECT
+o.*, c.*
+from orders o
+right join customers c on o.cust_id = c.cust_id;
+
+--- perform cross join
+SELECT
+o.*, c.*
+from orders o
+cross join customers c on o.cust_id = c.cust_id;
