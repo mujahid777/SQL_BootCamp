@@ -230,3 +230,31 @@ SELECT
 o.*, c.*
 from orders o
 cross join customers c on o.cust_id = c.cust_id;
+
+
+--- how to join more than 2 datasets
+--- Perform inner JOIN
+--- Get the customer information for each order , if the value of customer id present in the order table
+--- Also get the infornation of shipper name
+SELECT
+o.*, c.*, s.*
+from orders o
+inner join customers c on o.cust_id = c.cust_id
+inner join shippers s on o.shipper_id = s.ship_id;
+
+CREATE TABLE employees_full_data
+(
+    imp_id int,
+    name VARCHAR(50),
+    mgr_id int
+);
+
+insert into employees_full_data values(1, "Raza", 3);
+insert into employees_full_data values(2, "Ahmad", 3);
+insert into employees_full_data values(3, "khan", 4);
+insert into employees_full_data values(4, "Ansari", 6);
+insert into employees_full_data values(6, "pathan", null);
+
+select * from employees_full_data;
+
+--- write a query to print the distinct name of managers??
