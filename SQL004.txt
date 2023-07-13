@@ -169,3 +169,37 @@ select node,
             sum(case when payment_mode = 'ONLINE' then amount else 0 end) as online_amount
 from transactions
 group by merchant_id;
+
+--- Example for JOIN
+CREATE table orders
+(
+    order_id int,
+    cust_id int,
+    ord_date date,
+    shipper_id int
+);
+
+CREATE table customers
+(
+    cust_id int,
+    cust_name VARCHAR(50),
+    country VARCHAR(50)
+);
+
+insert into orders values(10308, 2, '2011-09-15', 3);
+insert into orders values(10309, 30, '2011-09-16', 1);
+insert into orders values(10310, 41, '2011-09-19', 2);
+
+insert into customers values(1, 'Shah', 'INDIA');
+insert into customers values(2, 'Rukh', 'USA');
+insert into customers values(3, 'Khan', 'UK');
+
+select * from orders;
+select * from customers;
+
+--- Perform inner JOIN
+--- Get the customer information for each order , if the value of customer id present in the order table
+SELECT
+o.*, c.*
+from orders o
+inner join customers c on o.cust_id = c.cust_id;
