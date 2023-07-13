@@ -186,6 +186,12 @@ CREATE table customers
     country VARCHAR(50)
 );
 
+create table shippers
+(
+    ship_id int,
+    ship_name VARCHAR(50)
+);
+
 insert into orders values(10308, 2, '2011-09-15', 3);
 insert into orders values(10309, 30, '2011-09-16', 1);
 insert into orders values(10310, 41, '2011-09-19', 2);
@@ -193,6 +199,9 @@ insert into orders values(10310, 41, '2011-09-19', 2);
 insert into customers values(1, 'Shah', 'INDIA');
 insert into customers values(2, 'Rukh', 'USA');
 insert into customers values(3, 'Khan', 'UK');
+
+insert into shippers value(3,'abc');
+insert into shippers value(1,'xyz');
 
 select * from orders;
 select * from customers;
