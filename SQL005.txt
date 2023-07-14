@@ -72,3 +72,21 @@ insert into shop_sales_data values('2022-02-20', 's3',300);
 select *,
         count(*) over (partition by shop_id) as total_sale_count_by_shops
         from shop_sales_data;
+
+
+select shop_id, count(*) as total_sale_count_by_shop from shop_sales_data group by shop_id;
+
+# If we only use order by in over clause
+select *,
+       sum(sales_amount) over(order by sales_amount desc) as total_sum_of_sales
+from shop_sales_data;   
+
+# If we use only partition by
+select *,
+       sum(sales_amount) over(partition  by shop_id) as total_sum_of_sales
+from shop_sales_data;  
+
+# If we use only partition by & order by together
+select *,
+       sum(sales_amount) over(partition  by shop_id order by sales_amount desc) as total_sum_of_sales
+from shop_sales_data;
