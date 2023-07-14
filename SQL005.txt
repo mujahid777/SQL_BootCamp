@@ -34,5 +34,16 @@ insert into orders values(4,800,2 );
 
 insert into orders values(5,350,1); 
  
-
 select * from orders;
+
+--- Get the orders information along with customers full details
+--- if ooders amount were than 400
+
+SELECT c.*, o.*
+from orders o
+inner join customers c on o.cust_id = c.id
+where o.amount > 400;
+
+SELECT c.*, o.*
+from orders o
+inner join customers c on o.cust_id = c.id and o.amount>400;
