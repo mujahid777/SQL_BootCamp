@@ -104,3 +104,13 @@ insert into amazon_sales_data values('2011-08-18', 200);
 insert into amazon_sales_data values('2011-08-25', 800);
 
 --- Query- calculate the date wise rolling sum of amazon sales
+
+
+select *,
+       avg(sales_amount) over(order by sales_date  ) as rolling_avg
+from amazon_sales_data;  
+
+select *,
+       avg(sales_amount) over(order by sales_date  ) as rolling_avg,
+       sum(sales_amount) over(order by sales_date  ) as rolling_sum
+from amazon_sales_data;
