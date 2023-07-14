@@ -90,3 +90,17 @@ from shop_sales_data;
 select *,
        sum(sales_amount) over(partition  by shop_id order by sales_amount desc) as total_sum_of_sales
 from shop_sales_data;
+
+CREATE table amazon_sales_data
+(
+    sales_date date,
+    sales_amount int
+);
+
+insert into amazon_sales_data values('2011-08-21', 500);
+insert into amazon_sales_data values('2011-08-22', 600);
+insert into amazon_sales_data values('2011-08-19', 300);
+insert into amazon_sales_data values('2011-08-18', 200); 
+insert into amazon_sales_data values('2011-08-25', 800);
+
+--- Query- calculate the date wise rolling sum of amazon sales
