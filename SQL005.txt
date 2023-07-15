@@ -243,6 +243,48 @@ from daily_sales;
  select *,
        lead(sales_amount, 1) over(order by sales_date) as next_day_sales
 from daily_sales; 
- 
+
+-- How to use Frame clause - Rows BETWEEN
+select * from daily_sales;
+
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN 1 PRECEDING and 1 following) as pre_plus_next_sales_sum
+from daily_sales;       
+
+
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN 1 PRECEDING and current row) as pre_plus_current_sales_sum
+from daily_sales; 
+
+
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN current row and 1 following) as pcurrent_plus_next_sales_sum
+from daily_sales; 
+
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN 2 PRECEDING and 1 following) as pre_plus_next_sales_sum
+from daily_sales;       
+
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN unbounded PRECEDING and current row) as rolling_sum_from_upper
+from daily_sales; 
+
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN  current row and unbounded following) as rolling_sum_from_bottom
+from daily_sales; 
+
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN unbounded PRECEDING and unbounded following) as rows_sum
+from daily_sales; 
+
+
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN unbounded PRECEDING and unbounded following) as rows_sum
+from daily_sales; 
+
+--- Alternate way to esclude computation of current row
+select *,
+       sum(sales_amount) over(order by sales_date rows BETWEEN unbounded PRECEDING and unbounded following) - sales_amount as pre_plus_next_sales_sum
+from daily_sales; 
 
 
