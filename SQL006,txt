@@ -102,3 +102,35 @@ select stu_id as stu_id_college2, name from student2;
 select stu_id from student
 UNION 
 select email from student2; 
+
+
+--- Common table Expression
+
+create table amazon_employees
+(
+    emp_id int,
+    emp_name VARCHAR(20),
+    dept_id int,
+    salary int
+);
+
+insert into amazon_employees values(1, 'Mujahid', 100, 10000);
+
+insert into amazon_employees values(2, 'Raza', 100, 20000);
+
+insert into amazon_employees values(3, 'Ahmad', 101, 15000);
+
+insert into amazon_employees values(4, 'Ayyub', 101, 17000);
+
+insert into amazon_employees values(5, 'Ali', 102, 30000);
+
+   create table department
+   (
+    dept_id int,
+    dept_name VARCHAR(20)
+   );
+
+   insert into department values(100, 'Software');
+   insert into department values(101, 'HR');
+   insert into department values(102, 'IT');
+   insert into department values(103, 'Finance');
