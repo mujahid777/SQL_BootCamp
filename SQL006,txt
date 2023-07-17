@@ -151,3 +151,14 @@ from (select dept_id, sum(salary) as total_salary from amazon_employees group by
 inner join department d on tmp.dept_id = d.dept_id;
 
 select * from dept_wise_salary;
+
+
+--- Write a query to generates numbers from 1 to 10 in SQL
+
+with recursive generate_numbers as 
+(
+    select 1 as n 
+    UNION
+    select n+1 from generate_numbers where n<10
+)
+select * from generate_numbers;
