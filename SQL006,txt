@@ -134,3 +134,20 @@ insert into amazon_employees values(5, 'Ali', 102, 30000);
    insert into department values(101, 'HR');
    insert into department values(102, 'IT');
    insert into department values(103, 'Finance');
+
+--- Write a query to print the name of department along with the total salary paid in each department
+
+   --- Normal approach
+select d.dept_name, tmp.total_salary
+from (select dept_id, sum(salary) as total_salary from amazon_employees group by dept_id) tmp
+inner join department d on tmp.dept_id = d.dept_id;
+
+--- How to do it using with clause
+
+with dept_wise_salary as (select dept_id, sum(salary) as total_salary from amazon_employees group by dept_id)
+
+select d.dept_name, tmp.total_salary
+from (select dept_id, sum(salary) as total_salary from amazon_employees group by dept_id) tmp
+inner join department d on tmp.dept_id = d.dept_id;
+
+select * from dept_wise_salary;
