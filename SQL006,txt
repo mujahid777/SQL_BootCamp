@@ -185,14 +185,23 @@ insert into emp_mgr values(8,'Zubair', 1, 'Manager ');
 
 select * from emp_mgr;
 
+
 --- For our CTO 'Anna' present her org chart 
 
 with RECURSIVE emp_hir as 
 (
-    SELECT id, name, manager_id, designation from emp_mgr where name= 'Anna'
+    SELECT id, name, manager_id, designation from emp_mgr where name = 'Anna'
     UNION
-    select em_id, em.name, em.manager_id, em.designation from emp_hir eh inner join emp_mgr em on eh.id = em.manager_id
-
+    select em.id, em.name, em.manager_id, em.designation from emp_hir eh inner join emp_mgr em on eh.id = em.manager_id
 )
 
+select * from emp_hir;
+
+
+with RECURSIVE emp_hir as 
+(
+    SELECT id, name, manager_id, designation, 1 as lvl from emp_mgr where name = 'Anna'
+    UNION
+    select em.id, em.name, em.manager_id, em.designation, eh.lvl + 1 as lvl from emp_hir eh inner join emp_mgr em on eh.id = em.manager_id
+)
 select * from emp_hir;
